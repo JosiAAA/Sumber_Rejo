@@ -341,12 +341,11 @@
     
     <div class='container1'>
         @foreach($search as $p)
-      
         <a href="{{ url('halamanberita', ['id' => $p->id]) }}" class="donation-link">
-           
             <div class="per-content" data-judul="{{ strtolower($p->judul) }}" data-pemilik="{{ strtolower($p->pemilik) }}" data-wilayah="{{ strtolower($p->wilayah) }}" data-id="{{ $p->id }}">
                 <div class="img-container">
-                    <img src="{{ asset('storage/' . $p->gambar) }}" alt="">
+                    <!-- Assuming $p->gambar contains the path relative to 'storage/gambar' -->
+                    <img src="{{ asset('storage/gambar/' . $p->gambar) }}" alt="">
                 </div>
                 <div class="deskripsi">
                     <h2 class="title">{{ $p->judul }}</h2>
@@ -356,7 +355,8 @@
                 </div>
             </div>
         </a>
-        @endforeach
+    @endforeach
+    
         <div class="pagination-wrapper">
             {{ $search->links() }}
         </div>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -18,7 +17,9 @@ class UploadGaleriController extends Controller
         // Handle file upload
         $imagePath = null;
         if ($request->hasFile('gambar')) {
-            $imagePath = $request->file('gambar')->store('images', 'public');
+            $image = $request->file('gambar');
+            $imagePath = 'gambar/' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/gambar'), $imagePath);
         }
 
         // Store the gallery data
@@ -30,3 +31,4 @@ class UploadGaleriController extends Controller
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 }
+
