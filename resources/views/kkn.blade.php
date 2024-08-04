@@ -127,7 +127,7 @@
             width: 160px;
     background-color: rgba(17, 17, 17, 0.9);
     color: white;
-    padding: 20px;
+    padding: 20.1px;
     
     top: 0;
     bottom: 0;
