@@ -205,6 +205,7 @@
 
 .text-details {
     flex: 1;
+    color: black;
 }
 
 .image-container {
