@@ -290,15 +290,16 @@
     <div class="slider1">
     <div class="list">
         @foreach($tampilan as $item)
-            <div class="item @if($loop->first) active @endif">
-                <img src="{{ asset('storage/' . $item->gambar) }}" alt="">
-                <div class="content">
-                    <p></p>
-                    <h2>{{ $item->judul }}</h2>
-                    <p>{{ $item->deskripsi }}</p>
-                </div>
+        <div class="item @if($loop->first) active @endif">
+            <img src="{{ url('/images/' . basename($item->gambar)) }}" alt="">
+            <div class="content">
+                <p></p>
+                <h2>{{ $item->judul }}</h2>
+                <p>{{ $item->deskripsi }}</p>
             </div>
-        @endforeach
+        </div>
+    @endforeach
+    
     </div>
 
         <!-- button arrows -->
@@ -378,7 +379,7 @@
         <div class="list">
         @foreach($galeriImages as $index => $g)
             <div class="item" style="--position: {{ $index + 1 }}">
-            <img src="{{ asset('storage/' . $g->gambar) }}" alt="">
+                <img src="{{ url('/image/' . basename($p->gambar)) }}" alt="">                   
             </div>
         @endforeach
         </div>

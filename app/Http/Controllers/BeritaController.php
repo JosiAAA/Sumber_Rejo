@@ -19,10 +19,14 @@ class BeritaController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Menyimpan gambar
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        }
+      // Menyimpan gambar langsung ke public/images
+if ($request->hasFile('image')) {
+    $image = $request->file('image');
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    $image->move(public_path('image'), $imageName);
+    $imagePath = 'image/' . $imageName;
+}
+
 
         // Menyimpan data berita
         Berita::create([

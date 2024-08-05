@@ -19,11 +19,12 @@ class StrukturController extends Controller
     ]);
 
     // Menyimpan gambar jika ada
-    $imagePath = null;
     if ($request->hasFile('gambar')) {
-        $imagePath = $request->file('gambar')->store('images', 'public');
+        $image = $request->file('gambar');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('image'), $imageName);
+        $imagePath = 'image/' . $imageName;
     }
-
     // Menyimpan data struktur organisasi
     struktur::create([
         'jabatan' => $request->input('jabatan'),

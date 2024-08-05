@@ -15,11 +15,11 @@ class UploadGaleriController extends Controller
         ]);
 
         // Handle file upload
-        $imagePath = null;
         if ($request->hasFile('gambar')) {
             $image = $request->file('gambar');
-            $imagePath = 'gambar/' . time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('storage/gambar'), $imagePath);
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('image'), $imageName);
+            $imagePath = 'image/' . $imageName;
         }
 
         // Store the gallery data
