@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\list_donasi;
 use App\Models\berita;
-use Illuminate\support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 class SearchController extends Controller
 {
     public function index()

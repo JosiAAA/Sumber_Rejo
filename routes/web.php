@@ -173,4 +173,6 @@ Route::get('/delete/{id}',[PostController::class,'destroy']);
 
 Route::post('/follow', [FollowController::class, 'toggleFollow'])->name('toggleFollow');
 Route::get('/explore/{id}', [KomentarController::class, 'index'])->name('explore.show');
+// routes/web.php
+Route::get('/storage/images/{filename}', 'ImageController@show');
 
